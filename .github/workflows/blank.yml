@@ -1,0 +1,78 @@
+# This is a basic workflow to help you get started with Actions
+
+
+
+
+funcion que regresa un entero y sirva para
+obtener la cantidad de calores divisibles entre 3 y 5, que se encuentra en un rango
+
+Suponer variables inf y sup se reciben como parámetros y contienen ya
+los valores de rango de LI y LS
+
+asume que inf igual menor sup
+
+inf = 10 sup =100
+int cuantos1 (int inf, int sup){
+int cont = 0;
+  for (int i=inf; i <= sup; i++){
+    if (i%3 == 0 && i%5 == 0) {
+        cont++;
+      }
+    }
+    return cont;
+}
+
+
+inf = 10 sup =100
+i = 10,11,13,14,15,16,17,...29,30
+cont = 2
+#Entra 14 veces en falso x 1 vez verdadero
+#se debe buscar la primer conicidencia y sumarle 15
+
+intcuantos2 (int inf, int sup){
+int cont = 0;
+  for (int i=inf; i <= sup; i++){
+    if (i%15 == 0) {
+        cont++;
+      }
+    }
+    return cont;
+}
+
+
+// 0(n) orden lineal 
+inf = 10 ==> inicio en 15 = 10 + 5
+inf = 45 ==> inicio en 45 = 10 
+inf = 47 ==> inicio en 60 = 10 + 13 
+i = 15, 30, 45, 60, 75, 90, 105
+cont = 6
+int cuantos3 (int inf, int sup){
+  int cont = 0;
+  int inicio = inf;
+  if (inf % 15 !=0) {
+    inicio = inicio + 15 - inf % 15;
+    }
+    for (int i =inicio i<=sup; i+=15){
+      cont ++;
+    }
+    return cont;
+  }
+# entra solo 6 veses al loop for
+
+inf = 10 y sup = 100 ==> regreso 6
+inf =30 y sup = 100 ==> regreso 5
+inf = 40 y sup =120 ==> regreso 6
+inf = 40 y sup = 50 ==> regreso 1
+
+100/15 - 10/15 = 6 - 0 = 6
+100/15 - 30/15 = 6 - 2 = 4 + 1 (porque inf es mult de 15 y se toma una ocasion extra)
+
+// 0 (1)
+int cuantos4 (int inf, int sup) {
+  if (inf%15 == 0){
+    return sup/ 15 - inf/15 + 1;
+  }
+  else {
+    return sup/15 - inf/15;
+    }
+  }
